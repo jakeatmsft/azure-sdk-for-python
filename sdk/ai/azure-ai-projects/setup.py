@@ -15,6 +15,11 @@ from setuptools import setup, find_packages
 PACKAGE_NAME = "azure-ai-projects"
 PACKAGE_PPRINT_NAME = "Azure AI Projects"
 
+PIPY_LONG_DESCRIPTION_BEGIN = "<!-- PIPY LONG DESCRIPTION BEGIN -->"
+PIPY_LONG_DESCRIPTION_END = "<!-- PIPY LONG DESCRIPTION END -->"
+
+GITHUB_URL = f"https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/ai/{PACKAGE_NAME}"
+
 # a-b-c => a/b/c
 package_folder_path = PACKAGE_NAME.replace("-", "/")
 
@@ -26,17 +31,31 @@ if not version:
     raise RuntimeError("Cannot find version information")
 
 
+long_description = ""
+
+# When you click the links in the Table of Content which has the format of {URL/#section_header}, you are supposed to be redirected to the section header.
+# However, this is not supported when the READ is rendered in pypi.org.  The README doesn't render with id={section_header} in HTML.
+# To resolve this broken link, we make the long description to have top of the README content and the Table of Content.
+# And replace the links in Table of Content to redirect to github.com.
+with open("README.md", "r") as f:
+    long_description = f.read()
+    start_index = long_description.find(PIPY_LONG_DESCRIPTION_BEGIN) + len(PIPY_LONG_DESCRIPTION_BEGIN)
+    end_index = long_description.find(PIPY_LONG_DESCRIPTION_END)
+    long_description = long_description[start_index:end_index].strip()
+    long_description = long_description.replace("{{package_name}}", PACKAGE_PPRINT_NAME)
+    long_description = long_description.replace("](#", f"]({GITHUB_URL}/#")
+
 setup(
     name=PACKAGE_NAME,
     version=version,
     description="Microsoft {} Client Library for Python".format(PACKAGE_PPRINT_NAME),
-    long_description=open("README.md", "r").read(),
+    long_description=long_description,
     long_description_content_type="text/markdown",
     license="MIT License",
     author="Microsoft Corporation",
     author_email="azpysdkhelp@microsoft.com",
     url="https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/ai/azure-ai-projects",
-    keywords="azure, azure sdk",
+    keywords="azure, azure sdk, openai, open ai, inference, agents",
     classifiers=[
         "Development Status :: 4 - Beta",
         "Programming Language :: Python",
@@ -49,6 +68,7 @@ setup(
         "Programming Language :: Python :: 3.12",
         "Programming Language :: Python :: 3.13",
         "License :: OSI Approved :: MIT License",
+        "Topic :: Scientific/Engineering :: Artificial Intelligence",
     ],
     zip_safe=False,
     packages=find_packages(
