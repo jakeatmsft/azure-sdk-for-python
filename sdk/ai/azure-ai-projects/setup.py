@@ -17,8 +17,13 @@ PACKAGE_PPRINT_NAME = "Azure AI Projects"
 
 PIPY_LONG_DESCRIPTION_BEGIN = "<!-- PIPY LONG DESCRIPTION BEGIN -->"
 PIPY_LONG_DESCRIPTION_END = "<!-- PIPY LONG DESCRIPTION END -->"
+LINKS_DIVIDER = "<!-- LINKS -->"
 
-GITHUB_URL = f"https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/ai/{PACKAGE_NAME}"
+GITHUB_URL = f"https://aka.ms/azsdk/azure-ai-projects/python/code"
+
+# Define the regular expression pattern to match links in the format [section name](#section_header)
+pattern = re.compile(r'\[([^\]]+)\]\(#([^\)]+)\)')
+
 
 # a-b-c => a/b/c
 package_folder_path = PACKAGE_NAME.replace("-", "/")
@@ -34,16 +39,21 @@ if not version:
 long_description = ""
 
 # When you click the links in the Table of Content which has the format of {URL/#section_header}, you are supposed to be redirected to the section header.
-# However, this is not supported when the READ is rendered in pypi.org.  The README doesn't render with id={section_header} in HTML.
-# To resolve this broken link, we make the long description to have top of the README content and the Table of Content.
+# However, this is not supported when the README is rendered in pypi.org.  The README doesn't render with id={section_header} in HTML.
+# To resolve this broken link, we make the long description to have top of the README content, the Table of Content, and the links at the bottom of the README
 # And replace the links in Table of Content to redirect to github.com.
 with open("README.md", "r") as f:
-    long_description = f.read()
-    start_index = long_description.find(PIPY_LONG_DESCRIPTION_BEGIN) + len(PIPY_LONG_DESCRIPTION_BEGIN)
-    end_index = long_description.find(PIPY_LONG_DESCRIPTION_END)
-    long_description = long_description[start_index:end_index].strip()
+    readme_content = f.read()
+    start_index = readme_content.find(PIPY_LONG_DESCRIPTION_BEGIN) + len(PIPY_LONG_DESCRIPTION_BEGIN)
+    end_index = readme_content.find(PIPY_LONG_DESCRIPTION_END)
+    long_description = readme_content[start_index:end_index].strip()
     long_description = long_description.replace("{{package_name}}", PACKAGE_PPRINT_NAME)
-    long_description = long_description.replace("](#", f"]({GITHUB_URL}/#")
+    long_description = re.sub(pattern, rf'[\1]({GITHUB_URL})', long_description)
+    links_index = readme_content.find(LINKS_DIVIDER)
+    long_description += "\n\n" +  readme_content[links_index:].strip()
+    
+with open("CHANGELOG.md", "r") as f:
+    long_description += "\n\n" + f.read()
 
 setup(
     name=PACKAGE_NAME,
@@ -55,7 +65,7 @@ setup(
     author="Microsoft Corporation",
     author_email="azpysdkhelp@microsoft.com",
     url="https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/ai/azure-ai-projects",
-    keywords="azure, azure sdk, openai, open ai, inference, agents",
+    keywords="azure, azure sdk, openai, open ai, inference, chat completion, embedding", 
     classifiers=[
         "Development Status :: 4 - Beta",
         "Programming Language :: Python",
