@@ -1,20 +1,18 @@
-"""
-FILE: upload_training_data.py
-
-DESCRIPTION:
-    Upload training artifacts (docs, *.ocr.json, *.labels.json, fields.json)
-    to Azure Blob Storage using Entra ID authentication.
-
-USAGE:
-    python upload_training_data.py
-
-    Set the environment variables with your own values before running:
-    1) DOCUMENTINTELLIGENCE_STORAGE_CONTAINER_URL - URL of the container to upload into.
-       -OR-
-       DOCUMENTINTELLIGENCE_STORAGE_ACCOUNT_NAME and DOCUMENTINTELLIGENCE_STORAGE_CONTAINER_NAME.
-    2) DOCUMENTINTELLIGENCE_STORAGE_PREFIX - optional prefix for uploaded blobs.
-    Variables can also be provided via a .env file in the working directory.
-"""
+# FILE: upload_training_data.py
+#
+# DESCRIPTION:
+#     Upload training artifacts (docs, *.ocr.json, *.labels.json, fields.json)
+#     to Azure Blob Storage using Entra ID authentication.
+#
+# USAGE:
+#     python upload_training_data.py
+#
+#     Set the environment variables with your own values before running:
+#     1) DOCUMENTINTELLIGENCE_STORAGE_CONTAINER_URL - URL of the container to upload into.
+#        -OR-
+#        DOCUMENTINTELLIGENCE_STORAGE_ACCOUNT_NAME and DOCUMENTINTELLIGENCE_STORAGE_CONTAINER_NAME.
+#     2) DOCUMENTINTELLIGENCE_STORAGE_PREFIX - optional prefix for uploaded blobs.
+#     Variables can also be provided via a .env file in the working directory.
 
 import argparse
 import os

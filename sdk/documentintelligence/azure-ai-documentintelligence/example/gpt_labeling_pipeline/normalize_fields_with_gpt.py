@@ -1,19 +1,17 @@
-"""
-FILE: normalize_fields_with_gpt.py
-
-DESCRIPTION:
-    Use Azure OpenAI to normalize raw per-document labels into a canonical
-    field list.
-
-USAGE:
-    python normalize_fields_with_gpt.py
-
-    Optional arguments:
-      --source   Directory containing *.labels.raw.json files.
-      --output   Output JSON file for canonical fields.
-      --endpoint Azure OpenAI endpoint (https://<resource>.openai.azure.com).
-      --model    Azure OpenAI deployment name (defaults to gpt-5.2).
-"""
+# FILE: normalize_fields_with_gpt.py
+#
+# DESCRIPTION:
+#     Use Azure OpenAI to normalize raw per-document labels into a canonical
+#     field list.
+#
+# USAGE:
+#     python normalize_fields_with_gpt.py
+#
+#     Optional arguments:
+#       --source   Directory containing *.labels.raw.json files.
+#       --output   Output JSON file for canonical fields.
+#       --endpoint Azure OpenAI endpoint (https://<resource>.openai.azure.com).
+#       --model    Azure OpenAI deployment name (defaults to gpt-5.2).
 
 import argparse
 from collections import defaultdict

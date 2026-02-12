@@ -1,19 +1,17 @@
-"""
-FILE: generate_ocr_data.py
-
-DESCRIPTION:
-    Generate OCR (prebuilt-layout) outputs for documents and store *.ocr.json
-    files used by downstream GPT labeling steps.
-
-USAGE:
-    python generate_ocr_data.py
-
-    Optional arguments:
-      --source     Directory or file with documents.
-      --output     Directory to write *.ocr.json files.
-      --max-files  Limit number of documents processed.
-      --extensions File extensions to include (with leading dots).
-"""
+# FILE: generate_ocr_data.py
+#
+# DESCRIPTION:
+#     Generate OCR (prebuilt-layout) outputs for documents and store *.ocr.json
+#     files used by downstream GPT labeling steps.
+#
+# USAGE:
+#     python generate_ocr_data.py
+#
+#     Optional arguments:
+#       --source     Directory or file with documents.
+#       --output     Directory to write *.ocr.json files.
+#       --max-files  Limit number of documents processed.
+#       --extensions File extensions to include (with leading dots).
 
 import argparse
 import json

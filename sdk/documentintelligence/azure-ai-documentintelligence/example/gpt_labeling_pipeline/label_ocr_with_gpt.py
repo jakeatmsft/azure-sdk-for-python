@@ -1,18 +1,16 @@
-"""
-FILE: label_ocr_with_gpt.py
-
-DESCRIPTION:
-    Use Azure OpenAI to propose raw key-value labels from OCR content.
-
-USAGE:
-    python label_ocr_with_gpt.py
-
-    Optional arguments:
-      --source   Directory containing *.ocr.json files.
-      --output   Output directory for raw label files.
-      --endpoint Azure OpenAI endpoint (https://<resource>.openai.azure.com).
-      --model    Azure OpenAI deployment name (defaults to gpt-5.2).
-"""
+# FILE: label_ocr_with_gpt.py
+#
+# DESCRIPTION:
+#     Use Azure OpenAI to propose raw key-value labels from OCR content.
+#
+# USAGE:
+#     python label_ocr_with_gpt.py
+#
+#     Optional arguments:
+#       --source   Directory containing *.ocr.json files.
+#       --output   Output directory for raw label files.
+#       --endpoint Azure OpenAI endpoint (https://<resource>.openai.azure.com).
+#       --model    Azure OpenAI deployment name (defaults to gpt-5.2).
 
 import argparse
 import json

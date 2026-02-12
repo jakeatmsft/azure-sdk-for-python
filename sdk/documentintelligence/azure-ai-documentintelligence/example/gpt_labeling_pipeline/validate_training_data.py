@@ -1,16 +1,14 @@
-"""
-FILE: validate_training_data.py
-
-DESCRIPTION:
-    Sanity-check training artifacts (fields, labels, OCR) for custom extraction.
-
-USAGE:
-    python validate_training_data.py
-
-    Optional arguments:
-      --fields  Path to fields.json (defaults to training_data/fields.json).
-      --upload  Upload data after validation.
-"""
+# FILE: validate_training_data.py
+#
+# DESCRIPTION:
+#     Sanity-check training artifacts (fields, labels, OCR) for custom extraction.
+#
+# USAGE:
+#     python validate_training_data.py
+#
+#     Optional arguments:
+#       --fields  Path to fields.json (defaults to training_data/fields.json).
+#       --upload  Upload data after validation.
 
 import argparse
 import json

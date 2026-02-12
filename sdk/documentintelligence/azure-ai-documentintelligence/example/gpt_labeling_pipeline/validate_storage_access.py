@@ -1,20 +1,18 @@
-"""
-FILE: validate_storage_access.py
-
-DESCRIPTION:
-    Validate that the current managed identity (or DefaultAzureCredential)
-    can access the training container used for custom extraction builds.
-
-USAGE:
-    python validate_storage_access.py --use-managed-identity
-
-    Optional arguments:
-      --container-url  Full container URL (overrides env vars).
-      --prefix         Optional blob prefix to list.
-      --list-limit     Number of blob names to print.
-      --download       Download the first blob to verify read access.
-      --mi-client-id   User-assigned managed identity client ID.
-"""
+# FILE: validate_storage_access.py
+#
+# DESCRIPTION:
+#     Validate that the current managed identity (or DefaultAzureCredential)
+#     can access the training container used for custom extraction builds.
+#
+# USAGE:
+#     python validate_storage_access.py --use-managed-identity
+#
+#     Optional arguments:
+#       --container-url  Full container URL (overrides env vars).
+#       --prefix         Optional blob prefix to list.
+#       --list-limit     Number of blob names to print.
+#       --download       Download the first blob to verify read access.
+#       --mi-client-id   User-assigned managed identity client ID.
 
 import argparse
 import os

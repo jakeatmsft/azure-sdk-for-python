@@ -1,10 +1,8 @@
-"""
-FILE: run_pipeline.py
-
-DESCRIPTION:
-    Run the end-to-end GPT labeling pipeline: OCR -> raw GPT labels -> canonical
-    fields -> canonical relabeling. Optionally upload and build a model.
-"""
+# FILE: run_pipeline.py
+#
+# DESCRIPTION:
+#     Run the end-to-end GPT labeling pipeline: OCR -> raw GPT labels -> canonical
+#     fields -> canonical relabeling. Optionally upload and build a model.
 
 import argparse
 from pathlib import Path

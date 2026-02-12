@@ -1,19 +1,17 @@
-"""
-FILE: build_custom_model.py
-
-DESCRIPTION:
-    Guide the custom extraction labeling flow in Document Intelligence Studio and
-    optionally build a model from the uploaded training data.
-
-USAGE:
-    python build_custom_model.py
-
-    Optional arguments:
-      --list-limit      Limit number of blob names to print (0 for all).
-      --build           Build the custom model after verification.
-      --model-id        Optional model ID for the build.
-      --allow-unlabeled Allow unlabeled documents under the prefix.
-"""
+# FILE: build_custom_model.py
+#
+# DESCRIPTION:
+#     Guide the custom extraction labeling flow in Document Intelligence Studio and
+#     optionally build a model from the uploaded training data.
+#
+# USAGE:
+#     python build_custom_model.py
+#
+#     Optional arguments:
+#       --list-limit      Limit number of blob names to print (0 for all).
+#       --build           Build the custom model after verification.
+#       --model-id        Optional model ID for the build.
+#       --allow-unlabeled Allow unlabeled documents under the prefix.
 
 import argparse
 import os

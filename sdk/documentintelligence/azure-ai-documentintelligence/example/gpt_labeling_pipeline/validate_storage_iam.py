@@ -1,13 +1,11 @@
-"""
-FILE: validate_storage_iam.py
-
-DESCRIPTION:
-    Check IAM role assignments for the Document Intelligence managed identity
-    against the storage container scope.
-
-USAGE:
-    python validate_storage_iam.py --resource-group <rg>
-"""
+# FILE: validate_storage_iam.py
+#
+# DESCRIPTION:
+#     Check IAM role assignments for the Document Intelligence managed identity
+#     against the storage container scope.
+#
+# USAGE:
+#     python validate_storage_iam.py --resource-group <rg>
 
 import argparse
 import os

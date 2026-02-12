@@ -1,21 +1,19 @@
-"""
-FILE: relabel_with_canonical_fields.py
-
-DESCRIPTION:
-    Use canonical fields with Azure OpenAI to generate Document Intelligence
-    label artifacts and assemble training data.
-
-USAGE:
-    python relabel_with_canonical_fields.py
-
-    Optional arguments:
-      --docs     Directory with source documents.
-      --ocr      Directory with *.ocr.json files.
-      --fields   Canonical fields JSON file.
-      --output   Output directory for training artifacts.
-      --endpoint Azure OpenAI endpoint (https://<resource>.openai.azure.com).
-      --model    Azure OpenAI deployment name (defaults to gpt-5.2).
-"""
+# FILE: relabel_with_canonical_fields.py
+#
+# DESCRIPTION:
+#     Use canonical fields with Azure OpenAI to generate Document Intelligence
+#     label artifacts and assemble training data.
+#
+# USAGE:
+#     python relabel_with_canonical_fields.py
+#
+#     Optional arguments:
+#       --docs     Directory with source documents.
+#       --ocr      Directory with *.ocr.json files.
+#       --fields   Canonical fields JSON file.
+#       --output   Output directory for training artifacts.
+#       --endpoint Azure OpenAI endpoint (https://<resource>.openai.azure.com).
+#       --model    Azure OpenAI deployment name (defaults to gpt-5.2).
 
 import argparse
 from datetime import datetime, timezone

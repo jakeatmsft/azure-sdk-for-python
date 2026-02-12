@@ -1,6 +1,7 @@
-"""
-Shared helpers for the GPT labeling pipeline.
-"""
+# FILE: pipeline_utils.py
+#
+# DESCRIPTION:
+#     Shared helpers for the GPT labeling pipeline.
 
 from pathlib import Path
 import json
